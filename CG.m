@@ -1,4 +1,4 @@
-function[x,steps] = CG(A,b,max)
+function[x] = CG(A,b,max)
 n = size(A,1);
 x0 = zeros(n,1);
 r0=b-A*x0;
@@ -8,7 +8,6 @@ if nargin == 2
     max = 200;
 end
 eps = 1.0e-6;
-steps = 0;
 times = 0;
 while 1
     if ((abs(p0) < eps))

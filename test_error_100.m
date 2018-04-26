@@ -1,26 +1,18 @@
-%{
-% 高斯赛德尔迭代静态测试
-A=[8 -3 2;4 11 -1;6 3 12]
-b=[20;33;36]
-Gauss_Seidel(A,b);
-%}
-
-%n=10
+%n=100
     n = 100
-    T = diag(normrnd(0,0.25,n,1));
-    %T= diag(rand(n,1));
+    % T = diag(normrnd(0,0.25,10,1));
+    T = diag(rand(n,1));
     U = orth(rand(n));
-    J = U*T*U';
-    D = diag(normrnd(10,20,n,1));
-    A = D - D*J;
-    
+    A = U*T*U';
+    chol(A);
     b = normrnd(600,1000,n,1);
+    
     
 
 % 雅可比迭代
 error1 = [];
 times1 = [];
-for i = 1:25
+for i = 1:40
     times1(i) = i;
     xtrue = linsolve(A,b);
     tic
@@ -35,7 +27,7 @@ hold on
 % 高斯赛德尔迭代
 error2 = [];
 times2 = [];
-for i = 1:25
+for i = 1:40
     times2(i) = i;
     xtrue = linsolve(A,b);
     tic
@@ -50,7 +42,7 @@ hold on
 % SOR迭代
 error3 = [];
 times3 = [];
-for i = 1:25
+for i = 1:40
     times3(i) = i;
     xtrue = linsolve(A,b);
     tic
@@ -60,4 +52,19 @@ for i = 1:25
 end
 plot(times3,error3);
 gtext('SOR迭代');
+hold on
+
+% 共轭梯度法
+error4 = [];
+times4 = [];
+for i = 1:40
+    times4(i) = i;
+    xtrue = linsolve(A,b);
+    tic
+    x = CG(A,b,i);
+    toc
+    error4(i) = norm((x-xtrue),2)/norm(xtrue,2);
+end
+plot(times4,error4);
+gtext('共轭梯度法');
 hold on

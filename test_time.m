@@ -1,5 +1,5 @@
-%n=50
-    n = 50
+%n=100
+    n = 100
     % T = diag(normrnd(0,0.25,10,1));
     T = diag(rand(n,1));
     U = orth(rand(n));
@@ -7,36 +7,23 @@
     chol(A);
     b = normrnd(600,1000,n,1);
     
-
+ 
+times = [];
 % 雅可比迭代
-error1 = [];
-times1 = [];
 for i = 1:40
-    times1(i) = i;
-    xtrue = linsolve(A,b);
     tic
     x = jacobi(A,b,i);
     toc
-    error1(i) = norm((x-xtrue),inf)/norm(xtrue,inf);
+    times(1) = toc;
 end
-plot(times1,error1);
-gtext('雅可比迭代');
-hold on
 
 % 高斯赛德尔迭代
-error2 = [];
-times2 = [];
 for i = 1:40
-    times2(i) = i;
-    xtrue = linsolve(A,b);
     tic
     x = Gauss_Seidel(A,b,i);
     toc
-    error2(i) = norm((x-xtrue),inf)/norm(xtrue,inf);
+    times(2) = toc;
 end
-plot(times2,error2);
-gtext('高斯赛德尔迭代');
-hold on
 
 % SOR迭代
 error3 = [];
