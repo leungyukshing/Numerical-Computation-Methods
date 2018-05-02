@@ -1,5 +1,5 @@
-%n=100
-    n = 100
+%n=10
+    n = 10
     % T = diag(normrnd(0,0.25,10,1));
     T = diag(rand(n,1));
     U = orth(rand(n));
@@ -26,31 +26,34 @@ for i = 1:40
 end
 
 % SOR迭代
-error3 = [];
-times3 = [];
 for i = 1:40
-    times3(i) = i;
-    xtrue = linsolve(A,b);
     tic
     x = SOR(A,b,1.3,i);
     toc
-    error3(i) = norm((x-xtrue),inf)/norm(xtrue,inf);
+    times(3) = toc;
 end
-plot(times3,error3);
-gtext('SOR迭代');
-hold on
 
 % 共轭梯度法
-error4 = [];
-times4 = [];
 for i = 1:40
-    times4(i) = i;
-    xtrue = linsolve(A,b);
     tic
     x = CG(A,b,i);
     toc
-    error4(i) = norm((x-xtrue),2)/norm(xtrue,2);
+    times(4) = toc;
 end
-plot(times4,error4);
-gtext('共轭梯度法');
-hold on
+
+% 高斯消元法
+for i = 1:40
+    tic
+    x = gauss_elim(A,b);
+    toc
+    times(5) = toc;
+end
+
+% 列主元消元法
+for i = 1:40
+    tic
+    x = gauss_elim_pro(A,b);
+    toc
+    times(6 ) = toc;
+end
+disp(times);
