@@ -1,6 +1,6 @@
-function[xn]=SOR(A,b,w,max)
+function[xn,times]=SOR(A,b,w,max)
 n=size(A,1);
-eps = 0.000001;
+eps = 0.00001;
 if nargin == 3
     max = 200;
 end

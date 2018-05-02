@@ -9,133 +9,115 @@
 
 w = [];
 time = [];
-%{
-for i = 1:100
-    times3(i) = i;
-    xtrue = linsolve(A,b);
-    tic
-    [x,t] = SOR(A,b,1.3,i);
-    toc
-end
-%}
+
 
 % 0.3
-tic
-SOR(A,b,0.3,15);
-toc
+[x,t] = SOR(A,b,0.3,500);
 w(1) = 0.3;
-time(1) = toc;
+time(1) = t;
+disp(t);
 
 % 0.4
-tic
-SOR(A,b,0.4,15);
-toc
+[x,t] = SOR(A,b,0.4,500);
 w(2) = 0.4;
-time(2) = toc;
+time(2) = t;
+disp(t);
 
 % 0.5
-tic
-SOR(A,b,0.5,15);
-toc
+[x,t] = SOR(A,b,0.5,500);
 w(3) = 0.5;
-time(3) = toc;
+time(3) = t;
+disp(t);
 
 % 0.6
-tic
-SOR(A,b,0.6,15);
-toc
+[x,t] = SOR(A,b,0.6,500);
 w(4) = 0.6;
-time(4) = toc;
+time(4) = t;
+disp(t);
 
 % 0.7
-tic
-SOR(A,b,0.7,15);
-toc
+[x,t] = SOR(A,b,0.7,500);
 w(5) = 0.7;
-time(5) = toc;
+time(5) = t;
+disp(t);
 
 % 0.8
-tic
-SOR(A,b,0.8,15);
-toc
+[x,t] = SOR(A,b,0.8,500);
 w(6) = 0.8;
-time(6) = toc;
+time(6) = t;
+disp(t);
 
 % 0.9
-tic
-SOR(A,b,0.9,15);
-toc
+[x,t] = SOR(A,b,0.9,500);
 w(7) = 0.9;
-time(7) = toc;
+time(7) = t;
+disp(t);
 
 % 1.0
-tic
-SOR(A,b,1.0,15);
-toc
+[x,t] = SOR(A,b,1.0,500);
 w(8) = 1.0;
-time(8) = toc;
+time(8) = t;
+disp(t);
 
 % 1.1
-tic
-SOR(A,b,1.1,15);
-toc
+[x,t] = SOR(A,b,1.1,500);
 w(9) = 1.1;
-time(9) = toc;
+time(9) = t;
+disp(t);
 
 % 1.2
-tic
-SOR(A,b,1.2,15);
-toc
+[x,t] = SOR(A,b,1.2,500);
 w(10) = 1.2;
-time(10) = toc;
+time(10) = t;
+disp(t);
 
 % 1.3
-tic
-SOR(A,b,1.3,15);
-toc
+[x,t] = SOR(A,b,1.3,500);
 w(11) = 1.3;
-time(11) = toc;
+time(11) = t;
+disp(t);
 
 % 1.4
-tic
-SOR(A,b,1.4,15);
-toc
+[x,t] = SOR(A,b,1.4,500);
 w(12) = 1.4;
-time(12) = toc;
+time(12) = t;
+disp(t);
 
 % 1.5
-tic
-SOR(A,b,1.5,15);
-toc
+[x,t] = SOR(A,b,1.5,500);
 w(13) = 1.5;
-time(13) = toc;
+time(13) = t;
+disp(t);
 
 % 1.6
-tic
-SOR(A,b,1.6,15);
-toc
+[x,t] = SOR(A,b,1.6,500);
 w(14) = 1.6;
-time(14) = toc;
+time(14) = t;
+disp(t);
 
 % 1.7
-tic
-SOR(A,b,1.7,15);
-toc
+[x,t] = SOR(A,b,1.7,500);
 w(15) = 1.7;
-time(15) = toc;
+time(15) = t;
+disp(t);
 
 % 1.8 
-tic
-SOR(A,b,1.8,15);
-toc
+[x,t] = SOR(A,b,1.8,500);
 w(16) = 1.8;
-time(16) = toc;
+time(16) = t;
+disp(t);
 
 % 1.9
-tic
-SOR(A,b,1.9,15);
-toc
+[x,t] = SOR(A,b,1.9,500);
 w(17) = 1.9;
-time(17) = toc;
+time(17) = t;
+disp(t);
 
 plot(w,time);
+
+
+%{
+    xtrue = linsolve(A,b);
+    [x,t] = SOR(A,b,1.3,500);
+    disp(t);
+%}
