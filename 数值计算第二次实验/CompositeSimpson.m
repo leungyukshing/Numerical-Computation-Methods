@@ -1,3 +1,4 @@
+% ¸´ºÏÐÁÆÕÉ­¹«Ê½
 function [result] = CompositeSimpson(a, b, n)
     if (b < a)
         c = b;

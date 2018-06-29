@@ -1,3 +1,4 @@
+% 复合梯形公式
 function [result] = CompositeTrapezoid(a, b, n)
     if (b < a)
         c = b;

@@ -41,7 +41,7 @@ while (b-a) > (2*e)
     error(k) = err;
 end
 toc
-
+% 均分时间间隔
 temp = toc / k;
 for i=1:k
     time(i) = i*temp;
