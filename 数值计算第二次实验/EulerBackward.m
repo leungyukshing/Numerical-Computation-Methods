@@ -1,3 +1,4 @@
+% 后向欧拉方法
 function [x,y] = EulerBackward(a, b, y0, h)
 n = (b - a) / h;
 x = zeros(1, n);
