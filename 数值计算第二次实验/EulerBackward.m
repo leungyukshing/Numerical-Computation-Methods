@@ -2,7 +2,6 @@
 function [x,y] = EulerBackward(a, b, y0, h)
 n = (b - a) / h;
 x = zeros(1, n);
-x(1) = 0;
 y(1) = y0;
 
 for i = 1:n

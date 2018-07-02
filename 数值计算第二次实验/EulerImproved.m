@@ -5,7 +5,7 @@ y(1) = y0;
 for i = 1:n
     x(i+1) = x(i) + h;
     yt = y(i) + h * myFun(x(i), y(i)); % 预测
-    y(i+1) = y(i) + (h/2) * (myFun(x(i), y(i)) + myFun(x(i), yt)); % 校正
+    y(i+1) = y(i) + (h/2) * (myFun(x(i), y(i)) + myFun(x(i+1), yt)); % 校正
 end
 end
 

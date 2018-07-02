@@ -1,5 +1,6 @@
 % ¸´ºÏÐÁÆÕÉ­¹«Ê½
 function [result] = CompositeSimpson(a, b, n)
+    format long;
     if (b < a)
         c = b;
         b = a;
