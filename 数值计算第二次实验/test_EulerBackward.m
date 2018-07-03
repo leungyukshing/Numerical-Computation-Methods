@@ -4,7 +4,7 @@ a = 0;
 b = 1;
 y0 = 1;
 h = 0.1;
-yx = [];
+
 [x,y] = EulerBackward(a,b ,y0, h);
 n = (b - a)/h;
 for i=2:n+1

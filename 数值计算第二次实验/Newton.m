@@ -1,25 +1,25 @@
+% 牛顿法
 function [y, count, error, time] = Newton(x, e)
     % y为最终结果
-    % time为迭代步数
     % x为开始迭代的初始坐标
     % e为迭代精度
-    % n为最大迭代次数
+
     del_x = 0.0000001; % 用于求函数导数值的极小量
-    count = [];%输出迭代次数的数组
+    count = [];% 输出迭代次数的数组
     time = []; % 输出迭代时间的数组
-    error = [];%输出误差的数组
-    k = 0; %迭代次数变量
-    err = 0;%误差变量
+    error = [];% 输出误差的数组
+    k = 0; % 迭代次数变量
+    err = 0;% 误差变量
     y = x;
     x = y + 1000; % 保证迭代能开始
-    n = 50;
+    n = 50; % n为最大迭代次数
     tic
     while 1
         if (abs(y-x) <= e)
             disp('满足迭代精度');
             break;
         elseif (k > n)
-            disp('迭代结束1');
+            disp('迭代次数过多，迭代结束');
             break;
         else
             x = y;

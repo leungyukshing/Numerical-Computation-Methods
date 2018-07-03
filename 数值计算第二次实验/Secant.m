@@ -1,11 +1,9 @@
 function [y, count, error, time] = Secant(x0, x1, e)
     % y为最终结果
-    % time为迭代步数
     % x为开始迭代的初始坐标
     % e为迭代精度
-    % n为最大迭代次数
-    n = 50;
-    k = 0;%迭代次数变量
+    n = 50; % n为最大迭代次数
+    k = 0;% 迭代次数变量
     err = 0;% 误差变量
     count = [];%输出迭代次数的数组
     time = []; % 输出迭代时间的数组
@@ -25,8 +23,7 @@ function [y, count, error, time] = Secant(x0, x1, e)
             x0 = x1;
             x1 = y;
             k = k + 1;
-            count(k) = k;
-            
+            count(k) = k;            
             error(k) = err;
         end
     end
@@ -38,7 +35,7 @@ function [y, count, error, time] = Secant(x0, x1, e)
         time(i) = i*temp;
     end
     
-disp('弦截法迭代结束');
+    disp('弦截法迭代结束');
 end
 
 function [y] = myFun(x)

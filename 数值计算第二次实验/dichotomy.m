@@ -13,15 +13,15 @@ f1 = myFun(a);
 f2 = myFun(b);
 fx = myFun(x);
 y = a;
+
 if (fx == 0)
     y = x;
 end
 
 tic
 while (b-a) > (2*e)
-    
-    
     fx = myFun(x);
+    % 得出精确解
     if (fx == 0)
       y = x;
       break;
@@ -41,6 +41,7 @@ while (b-a) > (2*e)
     error(k) = err;
 end
 toc
+
 % 均分时间间隔
 temp = toc / k;
 for i=1:k

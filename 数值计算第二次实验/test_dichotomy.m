@@ -8,8 +8,8 @@ times = [];
 error = [];
 [result, times, error, time] = dichotomy(10,11);
 
-%plot(times, error);
-%gtext('二分法：迭代次数-误差');
+plot(times, error);
+gtext('二分法：迭代次数-误差');
 
-plot(time, error);
-gtext('二分法：计算时间-误差');
+%plot(time, error);
+%gtext('二分法：计算时间-误差');
