@@ -1,21 +1,18 @@
+% é›…å¯æ¯”è¿­ä»£æ³•
 function[xn]=jacobi(A,b,max)
 n=size(A,1);
 eps = 0.000001;
+% é»˜è®¤æœ€å¤§è¿­ä»£æ¬¡æ•°
 if nargin == 2
     max = 200;
 end
+
+% åˆå§‹åŒ–å‘é‡
 x0=zeros(n,1);
 xn=zeros(n,1);
 x0(1)=1;
-%{
-D = diag(diag(A)); % ÇóAµÄ¶Ô½Ç¾ØÕó
-L = -tril(A, -1); % ÇóAµÄÏÂÈý½Ç¾ØÕó
-U = -tril(A,1); % ÇóAµÄÉÏÈý½Ç¾ØÕó
-B = D\(L+U);
-f = D\b;
-x = B*x0+f;
-%}
-times = 0;% µü´ú´ÎÊý
+
+times = 0; % è®°å½•è¿­ä»£æ¬¡æ•°
 while norm(xn-x0)>=eps && times <= max
     times=times+1;
     x0=xn;
@@ -34,5 +31,6 @@ while norm(xn-x0)>=eps && times <= max
         return;
     end
 end
+% è¾“å‡ºè¿­ä»£æ¬¡æ•°å’Œç»“æžœ
 disp(times);
 disp(xn);

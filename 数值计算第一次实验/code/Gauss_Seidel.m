@@ -1,27 +1,25 @@
+% é«˜æ–¯èµ›å¾·å°”è¿­ä»£æ³•
 function[xn]=Gauss_Seidel(A,b, max)
 n=size(A,1);
+
+% é»˜è®¤æœ€å¤§è¿­ä»£æ¬¡æ•°
 if nargin == 2
     max = 200;
 end
-eps = 0.000001;
 
+eps = 0.000001; % ç²¾åº¦æŽ§åˆ¶
+
+% åˆå§‹åŒ–å‘é‡
 x0=zeros(n,1);
 xn=zeros(n,1);
 x0(1)=1;
-%{
-D = diag(diag(A)); % ÇóAµÄ¶Ô½Ç¾ØÕó
-L = -tril(A, -1); % ÇóAµÄÏÂÈý½Ç¾ØÕó
-U = -tril(A,1); % ÇóAµÄÉÏÈý½Ç¾ØÕó
-B = D\(L+U);
-f = D\b;
-x = B*x0+f;
-%}
-% ÅÐ¶ÏÓÐÃ»ÓÐÎ¨Ò»½â
+
+% ä¿è¯æœ‰è§£
 if det(A) == 0
     return;
 end
 
-times = 0;% µü´ú´ÎÊý
+times = 0; % è¿­ä»£æ¬¡æ•°
 while norm(xn-x0)>=eps && times <= max
     times=times+1;
     x0=xn;
@@ -29,6 +27,7 @@ while norm(xn-x0)>=eps && times <= max
     for i=1:n
         sum1 = 0;
         sum2 = 0;
+        % ä½¿ç”¨æ–°çš„x
         for j =1:i-1
                 sum1 = sum1 + A(i,j) * xn(j);
         end
@@ -42,5 +41,6 @@ while norm(xn-x0)>=eps && times <= max
         return;
     end
 end
+% è¾“å‡ºè¿­ä»£æ¬¡æ•°å’Œç»“æžœ
 disp(times);
 disp(xn);
